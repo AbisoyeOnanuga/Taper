@@ -1,12 +1,14 @@
 # Import the required libraries
 from flask import Flask, render_template, request
-from transformers import pipeline
+from transformers import AutoModelForCausalLM, AutoTokenizer
+import torch
+import numpy as np
 
 # Create a Flask app
 app = Flask(__name__)
 
-# Create a GPT-4 pipeline
-gpt4 = pipeline("text-generation", model="Bert")
+model = AutoModelForCausalLM.from_pretrained("bigscience/bloom-560m")
+tokenizer = AutoTokenizer.from_pretrained("bigscience/bloom-560m")
 
 # Define a route for the home page
 @app.route("/")
@@ -18,9 +20,8 @@ def home():
 def generate():
     # Get the user input from the form
     user_input = request.form["user_input"]
-
-    # Generate a prompt using GPT-4
-    prompt = gpt4(user_input, max_length=50)[0]["generated_text"]
+    prompt = model.generate(tokenizer.encode(user_input, return_tensors="pt"), max_length=50, top_k=50)[0]
+    prompt = tokenizer.decode(prompt, skip_special_tokens=True)
 
     # Render the generate page with the user input and the prompt
     return render_template("generate.html", user_input=user_input, prompt=prompt)

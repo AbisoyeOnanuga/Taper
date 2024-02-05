@@ -12,7 +12,11 @@
             text-align: center;
             color: #333333;
         }
+        body p {
+            margin: 0px 50px 0px 50px
+        }
         form {
+            padding-top: 20px;
             width: 600px;
             margin: 0 auto;
         }
@@ -22,20 +26,29 @@
             font-size: 20px;
             padding: 10px;
             border: 1px solid #cccccc;
+            margin: 0 auto;
+            margin-left: 40px;
         }
         button {
+            display: block;
             width: 100px;
             height: 40px;
             font-size: 20px;
             background-color: #333333;
             color: white;
             border: none;
+            margin: 20px auto;
         }
     </style>
 </head>
 <body>
     <h1>Prompt Generator</h1>
-    <p>Welcome to the prompt generator web app. This app uses artificial intelligence to generate prompts for creative writing based on your input. To get started, enter a word, a phrase, or a sentence in the box below, and click the generate button. You will see a prompt that you can use as a starting point for your writing. Have fun and be creative!</p>
+    <p>
+        Welcome to the prompt generator web app. 
+        This app uses artificial intelligence to generate prompts for creative writing based on your input. 
+        To get started, enter a word, a phrase, or a sentence in the box below, and click the generate button. 
+        You will see a prompt that you can use as a starting point for your writing. Have fun and be creative!
+    </p>
     <form action="/generate" method="post">
         <input type="text" name="user_input" placeholder="Enter your input here" required>
         <button type="submit">Generate</button>
