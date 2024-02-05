@@ -1,0 +1,59 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+}
+
+h1 {
+    text-align: center;
+    color: #333333;
+}
+
+p {
+    width: 600px;
+    margin: 0 auto;
+    font-size: 20px;
+}
+
+a {
+    display: block;
+    width: 100px;
+    height: 40px;
+    font-size: 20px;
+    text-align: center;
+    text-decoration: none;
+    background-color: #333333;
+    color: white;
+    margin: 0 auto;
+}
+
+form {
+    padding-top: 20px;
+    width: 600px;
+    margin: 0 auto;
+}
+form div {
+    display: flex;
+    padding-top: 20px;
+    width: 600px;
+    margin: 0 auto;
+}
+input {
+    width: 500px;
+    height: 40px;
+    font-size: 20px;
+    padding: 10px;
+    border: 1px solid #cccccc;
+    margin: 0 auto;
+    margin-left: 40px;
+}
+
+button {
+    display: block;
+    width: 100px;
+    height: 40px;
+    font-size: 20px;
+    background-color: #333333;
+    color: white;
+    border: none;
+    margin: 20px auto;
+}

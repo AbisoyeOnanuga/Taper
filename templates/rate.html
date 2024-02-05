@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Creative Writing Prompt Generator</title>
+    <!-- Link a favicon image -->
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='images/favicon/favicon.ico') }}" alt="Taper logo">
+    <!-- Load custom CSS file -->
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Taper</h1>
+    <p>Thank you for your rating!</p>
+    <p>Your feedback is valuable for us to improve the app.</p>
+    <p>Do you want to generate more prompts with the same keyword or seed? Click here.</p>
+    <form action="/generate" method="POST">
+        <input type="hidden" name="user_input" value="{{ user_input }}">
+        <input type="hidden" name="prompts" value="{{ prompts }}">
+        <button type="submit">Generate</button>
+    </form>
+    <p>Do you want to generate prompts with a different keyword or seed? Go back to the home page.</p>
+    <a href="/">Home</a>
+</body>
+</html>

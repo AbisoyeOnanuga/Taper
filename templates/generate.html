@@ -1,39 +1,47 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Prompt Generator</title>
-    <style>
-        /* Add some style to your web app */
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f0f0f0;
-        }
-        h1 {
-            text-align: center;
-            color: #333333;
-        }
-        p {
-            width: 600px;
-            margin: 0 auto;
-            font-size: 20px;
-        }
-        a {
-            display: block;
-            width: 100px;
-            height: 40px;
-            font-size: 20px;
-            text-align: center;
-            text-decoration: none;
-            background-color: #333333;
-            color: white;
-            margin: 0 auto;
-        }
-    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Creative Writing Prompt Generator</title>
+    <!-- Link a favicon image -->
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='images/favicon/favicon.ico') }}" alt="Taper logo">
+    <!-- Load custom CSS file -->
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
-    <h1>Prompt Generator</h1>
-    <p>Your input: {{ user_input }}</p>
-    <p>Your prompt: {{ prompt }}</p>
+    <h1>Taper</h1>
+    <p>You entered: {{ user_input }}</p>
+    <p>Here are some creative writing prompts for you:</p>
+    <ul>
+        {% for prompt in prompts %}
+        <li>{{ prompt }}</li>
+        {% endfor %}
+    </ul>
+    <p>Do you like the prompts? Rate them from 1 to 5 stars.</p>
+    <form action="/rate" method="POST">
+        <input type="hidden" name="user_input" value="{{ user_input }}">
+        <input type="hidden" name="prompts" value="{{ prompts }}">
+        <div class="rating">
+            <div class="rate">
+                1<br/><input type="radio" name="rating" value="1">
+            </div>
+            <div class="rate">
+                2<br/><input type="radio" name="rating" value="2">
+            </div>
+            <div class="rate">
+                3<br/><input type="radio" name="rating" value="3">
+            </div>
+            <div class="rate">
+                4<br/><input type="radio" name="rating" value="4">
+            </div>
+            <div class="rate">
+                5<br/><input type="radio" name="rating" value="5">
+            </div>
+        </div>
+        <button type="submit">Submit</button>
+    </form>
+    <p>Do you want to try another keyword or seed? Go back to the home page.</p>
     <a href="/">Try again</a>
 </body>
 </html>

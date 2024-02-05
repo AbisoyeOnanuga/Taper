@@ -1,56 +1,31 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Prompt Generator</title>
-    <style>
-        /* Add some style to your web app */
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f0f0f0;
-        }
-        h1 {
-            text-align: center;
-            color: #333333;
-        }
-        body p {
-            margin: 0px 50px 0px 50px
-        }
-        form {
-            padding-top: 20px;
-            width: 600px;
-            margin: 0 auto;
-        }
-        input {
-            width: 500px;
-            height: 40px;
-            font-size: 20px;
-            padding: 10px;
-            border: 1px solid #cccccc;
-            margin: 0 auto;
-            margin-left: 40px;
-        }
-        button {
-            display: block;
-            width: 100px;
-            height: 40px;
-            font-size: 20px;
-            background-color: #333333;
-            color: white;
-            border: none;
-            margin: 20px auto;
-        }
-    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Creative Writing Prompt Generator</title>
+    <!-- Link a favicon image -->
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='images/favicon/favicon.ico') }}" alt="Taper logo">
+    <!-- Load custom CSS file -->
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
-    <h1>Prompt Generator</h1>
+    <h1>Taper</h1>
     <p>
-        Welcome to the prompt generator web app. 
+        Welcome to Taper, a creative writing prompt generator web app. 
         This app uses artificial intelligence to generate prompts for creative writing based on your input. 
         To get started, enter a word, a phrase, or a sentence in the box below, and click the generate button. 
         You will see a prompt that you can use as a starting point for your writing. Have fun and be creative!
     </p>
+    <p>Enter a keyword or a seed to generate creative writing prompts.</p>
+    <p>Examples: 
+        <button type="input">dog</button>
+        <button type="input">love</button>
+        <button type="input">mystery</button>
+        <button type="input">space</button>
+    </p>
     <form action="/generate" method="post">
-        <input type="text" name="user_input" placeholder="Enter your input here" required>
+        <input type="text" name="user_input" placeholder="Enter a keyword or a seed" required>
         <button type="submit">Generate</button>
     </form>
 </body>
