@@ -23,21 +23,16 @@
         <input type="hidden" name="user_input" value="{{ user_input }}">
         <input type="hidden" name="prompts" value="{{ prompts }}">
         <div class="rating">
-            <div class="rate">
-                1<br/><input type="radio" name="rating" value="1">
-            </div>
-            <div class="rate">
-                2<br/><input type="radio" name="rating" value="2">
-            </div>
-            <div class="rate">
-                3<br/><input type="radio" name="rating" value="3">
-            </div>
-            <div class="rate">
-                4<br/><input type="radio" name="rating" value="4">
-            </div>
-            <div class="rate">
-                5<br/><input type="radio" name="rating" value="5">
-            </div>
+            <input type="radio" name="rating" value="1" id="one">
+            <label for="one" class="rate" data-value="1"></label>
+            <input type="radio" name="rating" value="2" id="two">
+            <label for="two" class="rate" data-value="2"></label>
+            <input type="radio" name="rating" value="3" id="three">
+            <label for="three" class="rate" data-value="3"></label>
+            <input type="radio" name="rating" value="4" id="four">
+            <label for="four" class="rate" data-value="4"></label>
+            <input type="radio" name="rating" value="5" id="five">
+            <label for="five" class="rate" data-value="5"></label>
         </div>
         <button type="submit">Submit</button>
     </form>

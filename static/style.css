@@ -31,12 +31,7 @@ form {
     width: 600px;
     margin: 0 auto;
 }
-form div {
-    display: flex;
-    padding-top: 20px;
-    width: 600px;
-    margin: 0 auto;
-}
+
 input {
     width: 500px;
     height: 40px;
@@ -57,3 +52,39 @@ button {
     border: none;
     margin: 20px auto;
 }
+
+/* Hide the default radio buttons */
+input[type="radio"] {
+    display: none;
+  }
+  
+  /* Create a custom radio button */
+  .rate {
+    position: relative;
+    width: 25px;
+    height: 25px;
+    border: 2px solid #ccc;
+    border-radius: 50%;
+    margin: 10px;
+  }
+  
+  /* On mouse-over, add a grey background color */
+  .rate:hover {
+    background-color: #ccc;
+  }
+  
+  /* When the radio button is checked, add a blue background color */
+  input[type="radio"]:checked + .rate {
+    background-color: #2196F3;
+  }
+  
+  /* Create the number inside the radio button */
+  .rate::after {
+    content: attr(data-value); /* Use the data-value attribute as the number */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Center the number */
+    font-size: 16px;
+    color: white;
+  }
