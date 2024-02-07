@@ -21,9 +21,6 @@ def generate():
     # Get the user input from the form
     user_input = request.form["user_input"]
 
-    # Encode the prefix and the user input as input ids
-    input_ids = tokenizer.encode(prefix, return_tensors="pt")
-
     # Add a prefix to the user input to specify the task and domain
     prefix = "Word: {word}. Creative writing prompt: {prompt}\n"
     prefix += "Word: dog. Creative writing prompt: Write a story from the point of view of a dog.\n"
@@ -31,7 +28,10 @@ def generate():
     prefix += "Word: mystery. Creative writing prompt: Write a dialogue between a detective and a suspect.\n"
 
     # Encode the prefix and the user input as input ids
-    #input_ids = tokenizer.encode(prefix + user_input, return_tensors="pt")
+    input_ids = tokenizer.encode(
+        prefix.format(word=user_input, prompt=""), return_tensors="pt"
+    )
+
     # Generate 5 prompts with different sampling methods
     prompts = []
     for i in range(5):
@@ -54,12 +54,14 @@ def generate():
             # Use random sampling
             prompt = model.generate(input_ids, max_length=50, do_sample=True)[0]
         # Decode the prompt and remove the prefix and the user input
-        prompt = tokenizer.decode(prompt, skip_special_tokens=True).replace(prefix, "")
+        prompt = tokenizer.decode(prompt, skip_special_tokens=True).replace(
+            prefix.format(word=user_input, prompt=""), ""
+        )
         # Append the prompt to the list of prompts
         prompts.append(prompt)
 
-    # Render the generate page with the user input and the prompt
-    return render_template("generate.html", user_input=user_input, prompts=prompts)
+    # Render the generate page with the prompts
+    return render_template("generate.html", prompts=prompts)
 
 # Define a route for the rate page
 @app.route("/rate", methods=["POST"])
