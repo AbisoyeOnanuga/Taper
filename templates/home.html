@@ -12,13 +12,13 @@
 <body>
     <h1>Taper</h1>
     <p>
-        Welcome to Taper, a creative writing prompt generator web app. 
-        This app uses artificial intelligence to generate prompts for creative writing based on your input. 
+        Welcome to Taper, a creative writing prompt generator web app. <br><br>
+        This app uses artificial intelligence to generate prompts for creative writing based on your input. <br><br> 
         To get started, enter a word, a phrase, or a sentence in the box below, and click the generate button. 
         You will see a prompt that you can use as a starting point for your writing. Have fun and be creative!
-    </p>
-    <p>Enter a keyword or a seed to generate creative writing prompts.</p>
-    <p>Examples: 
+    </p><br><br> 
+    <p>Enter a keyword or a seed to generate creative writing prompts.</p><br><br> 
+    <p class="examples">Examples: 
         <button type="input">dog</button>
         <button type="input">love</button>
         <button type="input">mystery</button>
@@ -26,7 +26,7 @@
     </p>
     <form action="/generate" method="post">
         <input type="text" name="user_input" placeholder="Enter a keyword or a seed" required>
-        <button type="submit">Generate</button>
+        <button type="submit" class="generate">Generate</button>
     </form>
 </body>
 </html>

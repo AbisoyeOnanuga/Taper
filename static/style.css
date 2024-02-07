@@ -14,6 +14,12 @@ p {
     font-size: 20px;
 }
 
+p.examples{
+  display: flex;
+  width: 800px;
+  margin: 0 auto;
+}
+
 a {
     display: block;
     width: 100px;
@@ -44,47 +50,58 @@ input {
 
 button {
     display: block;
-    width: 100px;
-    height: 40px;
     font-size: 20px;
-    background-color: #333333;
-    color: white;
-    border: none;
+    border-style: solid;
+    border-color: #333333;
+    border-width: 0.1rem;
+    color: #333333;
+    border-radius: 8px;
     margin: 20px auto;
+    padding: 12px 21px;
+}
+
+button.generate {
+  border-radius: 50px;
+}
+
+button:hover {
+  background-color: #333333;
+  color: white;
+  margin: 20px auto;
 }
 
 /* Hide the default radio buttons */
 input[type="radio"] {
     display: none;
-  }
+}
   
-  /* Create a custom radio button */
-  .rate {
-    position: relative;
-    width: 25px;
-    height: 25px;
-    border: 2px solid #ccc;
-    border-radius: 50%;
-    margin: 10px;
-  }
+/* When the radio button is checked, add a blue background color */
+input[type="radio"]:checked + .rate {
+  background-color: #2196F3;
+}
+
+/* Create a custom radio button */
+label.rate {
+  position: relative;
+  width: 25px;
+  height: 25px;
+  border: 2px solid #ccc;
+  border-radius: 50%;
+  margin: 10px;
+}
   
-  /* On mouse-over, add a grey background color */
-  .rate:hover {
-    background-color: #ccc;
-  }
+/* On mouse-over, add a grey background color */
+label.rate:hover {
+  background-color: #ccc;
+}
   
-  /* When the radio button is checked, add a blue background color */
-  input[type="radio"]:checked + .rate {
-    background-color: #2196F3;
-  }
-  
-  /* Create the number inside the radio button */
-  .rate::after {
-    content: attr(data-value); /* Use the data-value attribute as the number */
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%); /* Center the number */
-    font-size: 16px;
-    color: white;
-  }
+/* Create the number inside the radio button */
+label.rate::after {
+  content: attr(data-value); /* Use the data-value attribute as the number */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); /* Center the number */
+  font-size: 16px;
+  color: white;
+}
