@@ -26,14 +26,17 @@
     <p>Enter a keyword or a seed to generate creative writing prompts.</p><br><br>
     Try these keywords:<br> 
     <p class="examples">
-        <button type="input">dog</button>
-        <button type="input">love</button>
-        <button type="input">mystery</button>
-        <button type="input">space</button>
+        <button id="dog" type="input">dog</button>
+        <button id="love" type="input">love</button>
+        <button id="mystery" type="input">mystery</button>
+        <button id="space" type="input">space</button>
+        <button id="dream" type="input">dream</button>
     </p>
     <form action="/generate" method="post">
-        <input type="text" name="user_input" placeholder="Enter a keyword or a seed" required>
+        <input id="user_input" type="text" name="user_input" placeholder="Enter a keyword or a seed" required>
         <button type="submit" class="generate">Generate</button>
     </form>
+    <!-- Load custom script file -->
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
 </body>
 </html>
