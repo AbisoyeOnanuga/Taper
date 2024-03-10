@@ -1,6 +1,7 @@
 body {
     font-family: Arial, sans-serif;
     background-color: #f0f0f0;
+    margin-left: 50px;
 }
 
 h1 {
@@ -9,7 +10,6 @@ h1 {
 }
 
 p {
-  width: 60%;
   margin: 0 auto;
   font-size: large;
 }
